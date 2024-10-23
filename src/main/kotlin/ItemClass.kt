@@ -26,6 +26,11 @@ class Order{
                 break
             }
 
+            if(orderItem == "r"){
+                cancelOrder()
+                continue
+            }
+
             if(items.containsKey(orderItem)){
                 val price = items[orderItem]
                 total += price!!
@@ -39,5 +44,18 @@ class Order{
 
     fun totalCost(){
         println("Total cost amount: $total")
+    }
+
+    fun cancelOrder(){
+        println("Enter item if you want to cancel: ")
+        val cancelItem = readln().lowercase()
+        if(orderList.contains(cancelItem)){
+            orderList.remove(cancelItem)
+            val price = items[cancelItem]
+            total -= price!!
+            println("You canceled $cancelItem")
+        }else{
+            println("$cancelItem not in order list")
+        }
     }
 }
