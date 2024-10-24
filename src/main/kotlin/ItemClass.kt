@@ -18,28 +18,29 @@ class Order{
 
     fun makeOrder(){
         println("Which food do you want? Enter q to quit, enter r to cancel item")
-        do{
             var orderItem = readln().lowercase()
 
-            if(orderItem == "q"){
-                println("Goodbye!")
-                break
-            }
+        while(orderItem != "q") {
 
-            if(orderItem == "r"){
+            if (orderItem == "r") {
                 cancelOrder()
-                continue
             }
 
-            if(items.containsKey(orderItem)){
+            else if (items.containsKey(orderItem)) {
                 val price = items[orderItem]
                 total += price!!
                 orderList.add(orderItem)
                 println("You ordered $orderItem-$price ks")
-            }else{
+            }
+
+            else {
                 println("This $orderItem isn't available right now!")
             }
-        }while(orderItem != "q")
+
+            println("Which food do you want? Enter q to quit, enter r to cancel item")
+            orderItem = readln().lowercase()
+        }
+        println("Goodbye!")
     }
 
     fun totalCost(){
