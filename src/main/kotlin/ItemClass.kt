@@ -7,7 +7,6 @@ class Order{
 
 
     fun availableItems(){
-        println("These are available items in this cafe")
         for((item, price) in items){
             println("$item-$price ks")
         }
@@ -43,11 +42,7 @@ class Order{
         println("Goodbye!")
     }
 
-    fun totalCost(){
-        println("Total cost amount: $total")
-    }
-
-    fun cancelOrder(){
+    private fun cancelOrder(){
         println("Enter item if you want to cancel: ")
         val cancelItem = readln().lowercase()
         if(orderList.contains(cancelItem)){
@@ -58,5 +53,9 @@ class Order{
         }else{
             println("$cancelItem not in order list")
         }
+    }
+
+    fun totalCost(){
+        println("Total Order $orderList-$total ks")
     }
 }
