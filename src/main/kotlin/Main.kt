@@ -1,7 +1,9 @@
 package org.example
 
 fun main() {
-    println("------Welcome to my mini cafe------")
-    val foodItems = Order()
-    val cosmeticItems  = CosmeticItems()
+    val food = Food()
+    val cosmetic = Cosmetic()
+
+    food.orderItems()
+    food.total()
 }
